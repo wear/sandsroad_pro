@@ -1,0 +1,49 @@
+td img {display: block;}
+body{
+	background:#000000;
+	margin:0px; 
+	font-size:14px; 
+	font-family: 微软雅黑,新宋体,华文宋体,sans-serif;
+	color:#022946;
+}             
+
+a {color:#fff;}
+a:link {color:#fff;}
+a:hover {text-decoration: none;}
+
+.title{   
+	color:#022946;
+	padding-left:160px;
+	background:#fff; 
+	font-size:24px;
+}        
+
+#case{
+	margin-bottom:20px;
+}
+
+#case a{
+   color:#032F48; 
+}  
+
+#case h4{ 
+	background:url(/images/sr-title.jpg); 
+	background-repeat: no-repeat;
+	height:25px;
+	margin:5px 0px; 
+	font-size:18px;
+	padding-left:35px;
+}        
+
+#bio img{
+	float:left;
+	margin:0px 10px 1px 0px;
+}       
+
+#lang{
+   font-weight:bold;
+   font-size:14px;  
+   color:#fff;
+   position:absolute;
+   left:300px; top:70px;
+}

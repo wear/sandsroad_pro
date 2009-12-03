@@ -1,0 +1,28 @@
+<h1>Listing bills</h1>
+
+<table border="0" cellspacing="5" cellpadding="5">
+<thead>
+	<tr>
+		<th>类别</th>
+		<th>事由</th>
+		<th>金额</th>
+		<th>支付人</th>
+		<th>描述</th>
+	</tr>
+</thead>
+<tbody>
+	<% @bills.each do |bill| %>
+	  <tr>                       
+		<td><%=h(bill.category) %></td>
+		<td><%=h(bill.reason) %></td>  
+		<td><%=h(bill.amount) %></td>
+		<td><%=h(bill.user.login) %></td>
+		<td><%=truncate(h(bill.desc),:length => 30) %></td>  
+	    <td><%= link_to 'Edit', edit_dashboard_bill_path(bill) %></td>
+	    <td><%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+</tbody>
+</table>
+
+<%= link_to 'New bill', new_dashboard_bill_path %>      

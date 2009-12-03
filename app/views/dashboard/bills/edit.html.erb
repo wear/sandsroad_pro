@@ -1,0 +1,8 @@
+<h1>Editing bill</h1>
+
+<% semantic_form_for(@bill,:url => dashboard_bill_path(@bill)) do |f| %>
+	<%=render :partial => 'form',:locals => { :f => f }%>   
+	<%=f.buttons %>
+<% end %>
+
+<%= link_to 'Back', dashboard_bills_path %>

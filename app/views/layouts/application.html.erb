@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title><%= h(yield(:title) || "Untitled") %></title>                                    
+	<%= javascript_include_tag :defaults %>                 
+    <%= stylesheet_link_tag 'style', 'formtastic', 'formtastic_changes', 'pretty-buttons','ui-theme','ui-custom' %>
+    <%= yield(:header) %>   
+  </head>
+  <body>
+    <div id="container">
+		<div id="header">
+		   <h1>沙路网络科技管理平台</h1> 
+		   <% if logged_in? -%>
+ 		   		<%=link_to '控制面板',dashboard_path%> | <%=link_to '出纳',dashboard_bills_path%> | <%=link_to '注销',logout_path%>         
+		   <% end -%>
+		</div>
+		<div id="body">
+		   <%= render :partial => '/shared/notice' %> 
+		   <%= yield %>  
+		</div>
+    </div>
+  </body>
+</html>
