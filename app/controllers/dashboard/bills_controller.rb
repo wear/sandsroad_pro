@@ -3,7 +3,8 @@ class Dashboard::BillsController < ApplicationController
   # GET /dashboard_bills
   # GET /dashboard_bills.xml
   def index
-    @bills = Bill.all
+    @search = Bill.search(params[:search])
+    @bills = @search.all
 
     respond_to do |format|
       format.html # index.html.erb

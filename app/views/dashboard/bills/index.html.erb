@@ -3,11 +3,11 @@
 <table border="0" cellspacing="5" cellpadding="5">
 <thead>
 	<tr>
-		<th>类别</th>
-		<th>项目</th>
-		<th>事由</th>
-		<th>金额</th>
-		<th>支付人</th>
+		<th><%=order @search, :by => :category %></th>
+		<th><%=order @search, :by => :kind %></th>
+		<th><%=order @search, :by => :reason %></th>
+		<th><%=order @search, :by => :amount %></th>
+		<th><%=order @search, :by => :user %></th>
 		<th>描述</th>
 	</tr>
 </thead>
@@ -21,9 +21,14 @@
 		<td><%=h(bill.user.login) %></td>
 		<td><%=truncate(h(bill.desc),:length => 30) %></td>  
 	    <td><%= link_to 'Edit', edit_dashboard_bill_path(bill) %> | <%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>   
+	  </tr>   
+	<% end %> 
+	  <tr>
+		<td colspan='2'></td>
+		<td colspan='2'>合计: 收入 <%= bill_count(@search.category_equals('收入').all)%> 支出 <%= bill_count(@search.category_equals('支出').all)%></td>
+		<td colspan=3></td>
+	  </tr>  
 </tbody>
-</table>
+</table>                                     
 
 <%= link_to 'New bill', new_dashboard_bill_path %>      

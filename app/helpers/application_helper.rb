@@ -18,4 +18,12 @@ module ApplicationHelper
   def state_type(type)
     (type == 'error') ? 'error' : 'highlight'
   end
+  
+  def bill_count(bills)                       
+    if bills.size == 1
+      bills.first.amount
+    else
+      bills.inject{|a,b| a.amount + b.amount }
+    end
+  end
 end
