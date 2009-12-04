@@ -9,9 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091203114849) do
+ActiveRecord::Schema.define(:version => 20091204072553) do
 
-  create_table :cashiers do |t| 
+  create_table "bills", :force => true do |t| 
+    t.string   "project"
     t.string   "category"
     t.string   "reason"
     t.text     "desc"
@@ -20,35 +21,20 @@ ActiveRecord::Schema.define(:version => 20091203114849) do
     t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.timestamps
-  end            
-  add_index "cashiers", ["user_id"], :name => "index_cashiers_on_user_id"  
-  
-  create_table :bills do |t|  
-    t.string   "category"
-    t.string   "reason"
-    t.text     "desc"
-    t.integer  "user_id"
-    t.date     "pay_date"
-    t.integer  "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.timestamps
   end
-  
+
   create_table "users", :force => true do |t|
-    t.column :login,                     :string, :limit => 40
-    t.column :name,                      :string, :limit => 100, :default => '', :null => true
-    t.column :email,                     :string, :limit => 100
-    t.column :crypted_password,          :string, :limit => 40
-    t.column :salt,                      :string, :limit => 40
-    t.column :created_at,                :datetime
-    t.column :updated_at,                :datetime
-    t.column :remember_token,            :string, :limit => 40
-    t.column :remember_token_expires_at, :datetime
-
-
+    t.string   "login",                     :limit => 40
+    t.string   "name",                      :limit => 100, :default => ""
+    t.string   "email",                     :limit => 100
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token",            :limit => 40
+    t.datetime "remember_token_expires_at"
   end
-  add_index :users, :login, :unique => true
+
+  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end

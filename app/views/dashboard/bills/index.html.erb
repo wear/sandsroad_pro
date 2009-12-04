@@ -4,6 +4,7 @@
 <thead>
 	<tr>
 		<th>类别</th>
+		<th>项目</th>
 		<th>事由</th>
 		<th>金额</th>
 		<th>支付人</th>
@@ -14,6 +15,7 @@
 	<% @bills.each do |bill| %>
 	  <tr>                       
 		<td><%=h(bill.category) %></td>
+		<td><%=h(bill.project) %></td>
 		<td><%=h(bill.reason) %></td>  
 		<td><%=h(bill.amount) %></td>
 		<td><%=h(bill.user.login) %></td>

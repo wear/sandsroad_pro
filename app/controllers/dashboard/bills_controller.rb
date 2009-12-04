@@ -45,7 +45,7 @@ class Dashboard::BillsController < ApplicationController
     respond_to do |format|
       if @bill.save
         flash[:notice] = 'Bill was successfully created.'
-        format.html { redirect_to(dashboard_bill_path(@bill)) }
+        format.html { redirect_to(dashboard_bills_path) }
         format.xml  { render :xml => @bill, :status => :created, :location => @bill }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class Dashboard::BillsController < ApplicationController
     respond_to do |format|
       if @bill.update_attributes(params[:bill])
         flash[:notice] = 'Bill was successfully updated.'
-        format.html { redirect_to(dashboard_bill_path(@bill)) }
+        format.html { redirect_to(dashboard_bills_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
