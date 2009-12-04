@@ -18,10 +18,9 @@
 		<td><%=h(bill.amount) %></td>
 		<td><%=h(bill.user.login) %></td>
 		<td><%=truncate(h(bill.desc),:length => 30) %></td>  
-	    <td><%= link_to 'Edit', edit_dashboard_bill_path(bill) %></td>
-	    <td><%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
+	    <td><%= link_to 'Edit', edit_dashboard_bill_path(bill) %> | <%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
-	<% end %>
+	<% end %>   
 </tbody>
 </table>
 

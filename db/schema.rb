@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20091203114849) do
   end            
   add_index "cashiers", ["user_id"], :name => "index_cashiers_on_user_id"  
   
-  create_table :bills do |t|
+  create_table :bills do |t|  
     t.string   "category"
     t.string   "reason"
     t.text     "desc"

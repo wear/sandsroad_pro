@@ -1,8 +1,0 @@
-<% f.inputs do -%>    
-	<%= f.input :category,:as => :select,:collection => ['收入','支出'],:label => '类别',:selected => '收入' %> 
-  	<%= f.input :reason,:label => '事由' %>
-  	<%= f.input :amount,:label => '金额',:input_html => { :autocomplete =>"off",:id => 'amount' } %>
-	<%= f.input :user,:as => :select, :collection => User.find(:all),:label => '付款人',:selected => current_user.id %>
-	<%= f.input :pay_date,:label => '日期' %>
-	<%= f.input :desc,:label => '描述',:required => false %>
-<% end -%>
