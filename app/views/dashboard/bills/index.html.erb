@@ -40,9 +40,9 @@
 	  </tr>   
 	<% end %> 
 	  <tr>
-		<td colspan='7' class='total'>合计: 收入 <%= bill_count(@search.category_equals('收入').all)%> 支出 <%= bill_count(@search.category_equals('支出').all)%></td>
+		<td colspan='7' class='total'>合计: 支出 <%=bill_count(@bills,'支出') %> 收入 <%=bill_count(@bills,'收入') %></td>
 	  </tr>  
 </tbody>
-</table>                                     
+</table>                               
 
 <%= link_to 'New bill', new_dashboard_bill_path %>      

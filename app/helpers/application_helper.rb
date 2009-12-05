@@ -19,11 +19,13 @@ module ApplicationHelper
     (type == 'error') ? 'error' : 'highlight'
   end
   
-  def bill_count(bills)                       
-    if bills.size == 1
-      bills.first.amount
-    else
-      bills.inject{|a,b| a.amount + b.amount }
+  def bill_count(bills,type)                       
+    total = 0
+    bills.each do |bill|   
+      if bill.category == type
+        total = total + bill.amount
+      end
     end
+    return total
   end
 end
