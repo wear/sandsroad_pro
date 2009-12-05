@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
   # render new.rhtml
   def new         
-    flash[:notice]  = 'dfsfs'
   end
 
   def create

@@ -90,22 +90,22 @@ table{
 	table-layout:automatic;
 	width:98%;  
 }
-th{ 
-		border: 1px solid #ccc;  
+#list th{       
+	border: 1px solid #ccc;   
 	font-weight: bold;
 	background-color: #eee;
 } 
-thead{
+#list thead{
 	background:#d9eaed;
 } 
 
-td{   
-	border: 1px solid #ccc;
+#list td{   
+	border: 1px solid #ccc;   
 	padding: 2px;
 	text-align:center;
 }
 
-th a{
+#list th a{
   padding-left:15px;  
 }
 
