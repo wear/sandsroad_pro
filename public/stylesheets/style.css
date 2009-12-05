@@ -88,19 +88,27 @@ table{
 	margin:5px;
 	border-collapse: collapse;
 	table-layout:automatic;
-	width:98%;
+	width:98%;  
 }
-th{
-	padding: 10px 6px;
+th{ 
+		border: 1px solid #ccc;  
+	font-weight: bold;
+	background-color: #eee;
 } 
 thead{
 	background:#d9eaed;
 } 
 
-td{
+td{   
+	border: 1px solid #ccc;
+	padding: 2px;
 	text-align:center;
 }
 
 th a{
   padding-left:15px;  
+}
+
+.total{   
+	background-color: #fff4c1;
 }

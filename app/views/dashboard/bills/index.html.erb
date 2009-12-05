@@ -1,14 +1,28 @@
-<h1>Listing bills</h1>
+<h2>Search</h2>       
+<% semantic_form_for @search do |f| -%>
+<% f.inputs do -%>    
+	<%= f.input :category_equals,:as => :select,:collection => ['收入','支出'],:label => '类别' %> 
+	<%= f.input :project_equals,:label => '项目',:as => :select,:collection => ['载途','公司事务','外包开发'] %>
+  	<%= f.input :reason_like,:label => '事由' %>
+  	<%#= f.input :amount,:label => '金额',:input_html => { :autocomplete =>"off",:id => 'amount' } %>
+	<%= f.input :user_id_equals,:as => :select, :collection => User.all,:label => '付款人' %>
+	<%#= f.input :pay_date,:label => '日期' %>
+<% end -%>
+	<%= f.submit 'submit' %>
+<% end -%>
+
+<h2>Listing Bills</h2>
 
 <table border="0" cellspacing="5" cellpadding="5">
 <thead>
 	<tr>
 		<th><%=order @search, :by => :category %></th>
-		<th><%=order @search, :by => :kind %></th>
+		<th><%=order @search, :by => :project %></th>
 		<th><%=order @search, :by => :reason %></th>
 		<th><%=order @search, :by => :amount %></th>
 		<th><%=order @search, :by => :user %></th>
-		<th>描述</th>
+		<th>描述</th> 
+		<th>操作</th>
 	</tr>
 </thead>
 <tbody>
@@ -17,16 +31,14 @@
 		<td><%=h(bill.category) %></td>
 		<td><%=h(bill.project) %></td>
 		<td><%=h(bill.reason) %></td>  
-		<td><%=h(bill.amount) %></td>
+		<td class='total'><%=h(bill.amount) %></td>
 		<td><%=h(bill.user.login) %></td>
 		<td><%=truncate(h(bill.desc),:length => 30) %></td>  
 	    <td><%= link_to 'Edit', edit_dashboard_bill_path(bill) %> | <%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>   
 	<% end %> 
 	  <tr>
-		<td colspan='2'></td>
-		<td colspan='2'>合计: 收入 <%= bill_count(@search.category_equals('收入').all)%> 支出 <%= bill_count(@search.category_equals('支出').all)%></td>
-		<td colspan=3></td>
+		<td colspan='7' class='total'>合计: 收入 <%= bill_count(@search.category_equals('收入').all)%> 支出 <%= bill_count(@search.category_equals('支出').all)%></td>
 	  </tr>  
 </tbody>
 </table>                                     
